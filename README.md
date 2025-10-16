@@ -6,7 +6,7 @@ The model is trained on experimental data and its leverages domain-informed desc
 📘 Overview
 Hydrogen storage materials are typically evaluated through experimental Pressure–Composition–Temperature (PCT) measurements, which are resource-intensive and time-consuming.
 EquiP provides a data-driven alternative by learning from experimentally derived Van’t Hoff relationships to predict ln($𝑃_{eq}$) directly, enabling rapid estimation of thermodynamic parameters (ΔH and ΔS).
-
+```
 EquiP/
 │
 ├── data/
@@ -26,7 +26,7 @@ EquiP/
 ├── README.md                      # Project documentation (this file)
 ├── requirements.txt               # Python dependencies
 └── LICENSE                        # License file (e.g., MIT or CC BY 4.0)
-
+```
 ⚙️ Installation
 1. Clone the repository
 git clone https://github.com/<your-username>/EquiP.git
