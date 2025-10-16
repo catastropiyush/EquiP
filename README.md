@@ -1,9 +1,13 @@
-# EquiP
+
+# EquiP: Machine Learning Model for Predicting Equilibrium Plateau Pressure of Metal Composition
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Project Overview
+
 EquiP: Machine Learning Model for Predicting Equilibrium Plateau Pressure in Metal Hydrides
 EquiP is a machine learning framework developed to predict the equilibrium plateau pressure ($𝑃_{eq}$) as function of temperature metal composition.
 The model is trained on experimental data and its leverages domain-informed descriptors, including elemental, compositional, and hydriding properties of constituent elements to learn the thermodynamics of metal–hydrogen systems.
-
-📘 Overview
 Hydrogen storage materials are typically evaluated through experimental Pressure–Composition–Temperature (PCT) measurements, which are resource-intensive and time-consuming.
 EquiP provides a data-driven alternative by learning from experimentally derived Van’t Hoff relationships to predict ln($𝑃_{eq}$) directly, enabling rapid estimation of thermodynamic parameters (ΔH and ΔS).
 ```
@@ -29,49 +33,59 @@ EquiP/
 ```
 ⚙️ Installation
 1. Clone the repository
-git clone https://github.com/<your-username>/EquiP.git
-cd EquiP
+
+    git clone https://github.com/ashwinidverma/EquiP.git
+
+    cd EquiP
 
 2. Create a virtual environment
-python -m venv venv
-source venv/bin/activate      # (or venv\Scripts\activate on Windows)
+
+    python -m venv venv
+
+    source venv/bin/activate      # (or venv\Scripts\activate on Windows)
+
 
 3. Install dependencies
-pip install -r requirements.txt
+
+   pip install -r requirements.txt
 
 
 🚀 Usage
+
 Run the main model
 
-To train and evaluate the model:
-python model/model.py
+To train and evaluate the model: python model/model.py
 
 
 This script:
 
-Loads and preprocesses the dataset
+    Loads and preprocesses the dataset
 
-Trains a Kernel Ridge Regression (KRR) model with RBF kernel
+    Trains a Kernel Ridge Regression (KRR) model with RBF kernel
 
-Performs cross-validation and LOCO tests
+    Performs cross-validation and LOCO tests
 
-Generates parity and SHAP plots
+    Generates parity and SHAP plots
 
-Saves all outputs in the output/ folder
+    Saves all outputs in the output/ folder
 
 🧠 Key Features
 
-Physically informed descriptors:
-Includes temperature, elemental, and hydriding features (e.g., Ehyd, ΔEN, ΔVol, etc.)
+  Physically informed descriptors:
 
-Thermodynamic consistency:
-Model predictions can reproduce ΔH and ΔS from Van’t Hoff behavior.
+      Includes temperature, elemental, and hydriding features (e.g., Ehyd, ΔEN, ΔVol, etc.)
 
-LOCO validation:
-Ensures model reliability for unseen compositions.
+  Thermodynamic consistency:
 
-Interpretability:
-SHAP analysis provides insight into which features most strongly affect 𝑃eqP
+       Model predictions can reproduce ΔH and ΔS from Van’t Hoff behavior.
+
+  LOCO validation:
+
+      Ensures model reliability for unseen compositions.
+
+  Interpretability:
+
+       SHAP analysis provides insight into which features most strongly affect 𝑃eqP
 
 🧩 Citation
 
@@ -79,8 +93,14 @@ If you use EquiP or its dataset in your research, please cite:
 “What drives property prediction for solid-state hydrogen storage? Data or smart features?”
 A. Verma, K. Joshi et al., 2025.
 
-🪪 License
+## Contact / Collaboration
 
-This repository is distributed under the MIT License (or specify another if applicable).
-You are free to use, modify, and distribute the code with proper attribution.
+For questions, feedback, or collaboration, feel free to reach out:
+
+- **Email:** ashwini.dverma@gmail.com  
+- **LinkedIn:** [Ashwini Verma](https://www.linkedin.com/in/ashwinidverma/)  
+
+You are also welcome to open issues or pull requests directly on this repository for feedback or improvements.
+
+
 
