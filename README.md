@@ -5,21 +5,21 @@
 
 ## Project Overview
 
-EquiP: Machine Learning Model for Predicting Equilibrium Plateau Pressure in Metal Hydrides
-EquiP is a machine learning framework developed to predict the equilibrium plateau pressure ($𝑃_{eq}$) as function of temperature metal composition.
-The model is trained on experimental data and its leverages domain-informed descriptors, including elemental, compositional, and hydriding properties of constituent elements to learn the thermodynamics of metal–hydrogen systems.
-Hydrogen storage materials are typically evaluated through experimental Pressure–Composition–Temperature (PCT) measurements, which are resource-intensive and time-consuming.
-EquiP provides a data-driven alternative by learning from experimentally derived Van’t Hoff relationships to predict ln($𝑃_{eq}$) directly, enabling rapid estimation of thermodynamic parameters (ΔH and ΔS).
+Metal hydrides play a pivotal role in a wide range of technologies, including hydrogen storage, compression, heat management, and catalysis. Their performance is fundamentally governed by the thermodynamics of metal–hydrogen interactions, which determine key operational condition of these systems. One of the most critical thermodynamic parameters is the equilibrium plateau pressure (P<sub>eq</sub>), it defines the conditions under which hydrogen absorption and desorption occur, directly influencing the temperature and pressure ranges suitable for system operation. Traditionally, determining P<sub>eq</sub> requires extensive experimental measurements, creating a bottleneck in the pace of materials discovery and optimization.
+
+🧠 Introducing EquiP
+
+EquiP is a machine learning framework designed to predict the ln(P<sub>eq</sub>) (in MPa) of metal hydrides as a function of temperature. Rather than providing only single-point predictions, EquiP generates complete Van’t Hoff plots (P<sub>eq</sub> vs. 1/T), enabling rapid estimation of key thermodynamic parameters: ΔH (enthalpy of hydride formation) and ΔS (entropy of hydride formation)
 ```
 EquiP/
 │
 ├── data/
 │   ├── EQUIP_Input.csv          # Main dataset (composition, features, target)
-│   ├── EquiP_Mg_Input.csv              # Optional Mg-based subset for focused tests
+│   ├── EQUIP_Input_Mg.csv            # Optional Mg-based subset for focused tests
 │
 ├── model/
-│   ├── model.py                   # Main ML workflow script (KRR training + SHAP)
-│   ├── utils.py                   # Helper functions (feature processing, metrics)
+│   ├── EquiP_Traning.ipynb        # Main ML workflow script (KRR training + Validation + SHAP + LOCO)
+│   ├── EquiP_Mg_XRD_Model.ipynb   # Model trained only on Mg-based compositions with XRD information
 │
 ├── output/
 │   ├── parity_plot.png            # Predicted vs Experimental ln(Peq)
@@ -54,44 +54,44 @@ EquiP/
 
 Run the main model
 
-To train and evaluate the model: python model/model.py
+To train and evaluate EquiP: python model/EquiP_Traning.ipynb
+
+To train and evaluate Mg-EquiP with XRD: python model/EquiP_Mg_XRD_Model.ipynb 
 
 
 This script:
 
-    Loads and preprocesses the dataset
+Loads and preprocesses the dataset
 
-    Trains a Kernel Ridge Regression (KRR) model with RBF kernel
+Trains a Kernel Ridge Regression (KRR) model with RBF kernel
 
-    Performs cross-validation and LOCO tests
+Generates parity and SHAP plots
 
-    Generates parity and SHAP plots
+Performs cross-validation and LOCO tests
 
-    Saves all outputs in the output/ folder
+Saves all outputs in the output/ folder
 
 🧠 Key Features
 
-  Physically informed descriptors:
+  Experimental Dataset: consisting of 293 data points extracted from Van't Hoff plots of 77 compositions.
+  
+  Feature Set: Includes temperature, elemental, and hydriding features (e.g., Ehyd, ΔEN, ΔVol, etc.)
 
-      Includes temperature, elemental, and hydriding features (e.g., Ehyd, ΔEN, ΔVol, etc.)
+  Thermodynamic consistency: Model predictions can reproduce ΔH and ΔS from Van’t Hoff behavior.
 
-  Thermodynamic consistency:
+  LOCO validation: Evaluate model reliability for unseen compositions.
 
-       Model predictions can reproduce ΔH and ΔS from Van’t Hoff behavior.
+  Interpretability: SHAP analysis provides insight into which features most strongly affect P<sub>eq</sub>.
 
-  LOCO validation:
+📈 Results & Insights
 
-      Ensures model reliability for unseen compositions.
-
-  Interpretability:
-
-       SHAP analysis provides insight into which features most strongly affect 𝑃eqP
+Comparative analyses demonstrate that incorporating domain-informed features and structural descriptors significantly improves model performance. Even with limited data, intelligen feature design grounded in domain knowledge enables improved predictions of complex material properties.
 
 🧩 Citation
 
 If you use EquiP or its dataset in your research, please cite:
 “What drives property prediction for solid-state hydrogen storage? Data or smart features?”
-A. Verma, K. Joshi et al., 2025.
+A. Verma and K. Joshi (2025)
 
 ## Contact / Collaboration
 
