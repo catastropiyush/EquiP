@@ -89,9 +89,8 @@ Comparative analyses demonstrate that incorporating domain-informed features and
 
 🧩 Citation
 
-If you use EquiP or its dataset in your research, please cite:
-“What drives property prediction for solid-state hydrogen storage? Data or smart features?”
-A. Verma and K. Joshi (2025)
+Verma, A.; Joshi, K. (2025). *What drives property prediction for solid-state hydrogen storage? Data or smart features?* **ChemRxiv.** [https://doi.org/10.26434/chemrxiv-2025-9cvm9](https://doi.org/10.26434/chemrxiv-2025-9cvm9)
+
 
 ## Contact / Collaboration
 
